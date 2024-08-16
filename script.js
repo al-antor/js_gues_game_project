@@ -50,4 +50,5 @@ reset.addEventListener("click", (e) => {
   document.querySelector("input").value = "";
   random = randomNumber();
   inputList = [];
+  submit.disabled = false;
 });
