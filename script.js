@@ -32,7 +32,7 @@ submit.addEventListener("click", (e) => {
     inputList.push(userValue);
     remain.innerText = choiseRemain.toString();
     if (choiseRemain == 0) {
-      result.innerText = "Your choise is worng. You Lose";
+      result.innerText = `Your choise is worng. You Lose\n computer choose: ${random}`;
       submit.disabled = true;
       document.querySelector("input").value = "";
       showList(inputList);
