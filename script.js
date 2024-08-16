@@ -18,6 +18,8 @@ let inputList = [];
 submit.addEventListener("click", (e) => {
   let userValue = document.querySelector(".user-input").value;
   if (userValue == random) {
+    choiseRemain--;
+    remain.innerText = choiseRemain.toString();
     result.style.color = "green";
     inputList.push(userValue);
     result.innerText = "You Chose Correct One. You Win!";
