@@ -2,7 +2,12 @@ function randomNumber() {
   let num = Math.floor(Math.random() * 10) + 1;
   return num;
 }
-
+function closeAll() {
+  const button = document.querySelector(".input");
+  button.style.display = "none";
+  const reset = document.querySelector(".reset");
+  reset.innerText = "Play Again";
+}
 function showList(arr) {
   let a = arr.join(" ");
   document.querySelector(".user-guess").innerText = a;
@@ -13,11 +18,12 @@ const remain = document.querySelector(".choise-remain");
 const reset = document.querySelector(".reset");
 let userValue = document.querySelector(".user-input").value;
 let random = randomNumber();
-let choiseRemain = 5;
+let choiseRemain = 3;
 let inputList = [];
 submit.addEventListener("click", (e) => {
   let userValue = document.querySelector(".user-input").value;
   if (userValue == random) {
+    closeAll();
     choiseRemain--;
     remain.innerText = choiseRemain.toString();
     result.style.color = "green";
@@ -32,6 +38,7 @@ submit.addEventListener("click", (e) => {
     inputList.push(userValue);
     remain.innerText = choiseRemain.toString();
     if (choiseRemain == 0) {
+      closeAll();
       result.innerText = `Your choise is worng. You Lose\n computer choose: ${random}`;
       submit.disabled = true;
       document.querySelector("input").value = "";
@@ -47,10 +54,12 @@ submit.addEventListener("click", (e) => {
 reset.addEventListener("click", (e) => {
   document.querySelector(".user-guess").innerText = "";
   result.innerText = "";
-  remain.innerText = "5";
-  choiseRemain = 5;
+  remain.innerText = "3";
+  choiseRemain = 3;
   document.querySelector("input").value = "";
   random = randomNumber();
   inputList = [];
   submit.disabled = false;
+  submit.style.display = "inline-block";
+  reset.innerText = "Reset";
 });
